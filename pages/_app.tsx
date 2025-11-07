@@ -1,12 +1,13 @@
 "use client";
-import type { AppProps } from 'next/app';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import '../styles/global.css';
 
-const queryClient = new QueryClient();
+import '../styles/globals.css';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }) {
+  // Create Query Client on the client only
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
