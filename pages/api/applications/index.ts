@@ -7,14 +7,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!user) return res.status(401).json({ error: 'Unauthorized' });
 
   if (req.method === 'GET') {
-    const apps = await prisma.application.findMany({ where: { userId: user.id }, orderBy: { createdAt: 'desc' }});
-    return res.json(apps);
+    const apps = await prisma.application.findMany({
+      where: { userId: user.id },
+      orderBy: [
+        { status: 'asc' },
+        { createdAt: 'desc' },
+      ],
+    });
+    return res.status(200).json(apps);
   }
 
   if (req.method === 'POST') {
     const { company, position, status, location, link, appliedDate, notes } = req.body;
     const app = await prisma.application.create({
-      data: { userId: user.id, company, position, status, location, link, appliedDate: appliedDate ? new Date(appliedDate) : null, notes }
+      data: {
+        userId: user.id,
+        company,
+        position,
+        status,
+        location,
+        link,
+        appliedDate: appliedDate ? new Date(appliedDate) : null,
+        notes,
+      },
     });
     return res.status(201).json(app);
   }
