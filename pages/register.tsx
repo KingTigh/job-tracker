@@ -15,7 +15,8 @@ export default function Register() {
     try {
       await axios.post('/api/auth/register', { email, password, name: email.split('@')[0]}, {withCredentials: true});
       router.push('/dashboard');
-    } catch {
+    } catch (err: any) {
+      console.log(err?.respone?.data || err);
       alert('Registration failed');
     }
   };
