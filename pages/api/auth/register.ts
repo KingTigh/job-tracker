@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import { serialize } from 'cookie';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  console.log('Register route hit:', req.method, req.url);
   if (req.method !== 'POST') return res.status(405).end();
   const { email, password, name } = req.body;
   const existing = await prisma.user.findUnique({ where: { email }});
