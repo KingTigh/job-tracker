@@ -1,16 +1,11 @@
 {
   "/_app": "pages/_app.js",
-  "/api/applications": "pages/api/applications.js",
-  "/api/applications/[id]": "pages/api/applications/[id].js",
   "/_error": "pages/_error.js",
-  "/api/auth/login": "pages/api/auth/login.js",
-  "/api/auth/logout": "pages/api/auth/logout.js",
-  "/api/auth/register": "pages/api/auth/register.js",
-  "/dashboard": "pages/dashboard.html",
-  "/": "pages/index.html",
-  "/login": "pages/login.html",
-  "/logout": "pages/logout.html",
-  "/register": "pages/register.html",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/login": "pages/login.js",
+  "/board": "pages/board.js",
+  "/api/auth/login": "pages/api/auth/login.js",
+  "/api/applications": "pages/api/applications.js",
+  "/dashboard": "pages/dashboard.js"
 }

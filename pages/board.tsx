@@ -1,5 +1,4 @@
 "use client";
-import "../styles/board.css";
 import { useState, useEffect } from "react";
 import axios from "../utils/axios";
 import { Container, Row, Col, Card } from "react-bootstrap";
