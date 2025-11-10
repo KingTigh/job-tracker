@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../utils/axios';
 import { useRouter } from 'next/router';
 import { Form, Button, Container } from 'react-bootstrap';
 import AppNavbar from '../components/Navbar';
@@ -13,7 +13,7 @@ export default function Register() {
   const handleRegister = async (e: any) => {
     e.preventDefault();
     try {
-      await axios.post('/api/auth/register', { email, password, name: email.split('@')[0] });
+      await axios.post('/api/auth/register', { email, password, name: email.split('@')[0]}, {withCredentials: true});
       router.push('/dashboard');
     } catch {
       alert('Registration failed');

@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     httpOnly: true,
     path: '/',
     secure: process.env.NODE_ENV === 'production',
+    sameSite: 'none',
     maxAge: 60 * 60 * 24 * 7
   }));
   res.json({ id: user.id, email: user.email });
